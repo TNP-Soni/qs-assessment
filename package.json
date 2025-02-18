@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@ng-idle/core": "^16.0.0",
-    "@ng-idle/keepalive": "^16.0.0",
-    "ng-idle": "^1.3.2"
-  }
-}
