@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./BE
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Masterstroke@123
+      MYSQL_DATABASE: grocery
+    depends_on:
+      - mysql
+
+  frontend:
+    build:
+      context: ./FE/questionpro
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Masterstroke@123
+      MYSQL_DATABASE: grocery
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
